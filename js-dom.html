@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript DOM</title>
+</head>
+
+<body>
+
+</body>
+
+<div class="container">
+    <h1>JavaScript DOM</h1>
+    <p class="paragraph" customattribute="something" data-dataCustomAttribute="cutom attribute using data attribute">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim deserunt, officia, molestias minus repellendus
+        dolores reprehenderit, sit consequuntur nobis ipsa qui voluptates dolorum? Quas, inventore nemo mollitia saepe
+        officia sit.</p>
+</div>
+
+<script>
+    const container = document.querySelector('.container')
+
+    const spanElement = document.createElement('span')
+    spanElement.textContent = 'I am a span element'
+
+    // container.prepend(spanElement)
+    // container.append(spanElement)
+    // container.before(spanElement)
+    container.after(spanElement)
+    // document.querySelector('.btn').addEventListener('click', () => {
+    // spanElement.remove()
+    // })
+
+    spanElement.style.backgroundColor = '#ff0'
+    spanElement.style.padding = '1rem'
+
+    document.querySelector('.paragraph').id = 'para'
+    console.log(document.querySelector('.paragraph').getAttribute('customattribute'))
+    console.log(document.querySelector('.paragraph').dataset.datacustomattribute)
+
+    document.querySelector('.paragraph').classList.add('newclass')
+    console.log(document.querySelector('.paragraph').classList.contains('newclass'))
+    document.querySelector('.paragraph').classList.add('newclass')
+    document.querySelector('.paragraph').classList.add('newclass')
+    document.querySelector('.paragraph').classList.toggle('newclass')
+
+    const alertHi = function () {
+        alert('The mouse is on the h1')
+
+        removeEventListener('mouseenter', alertHi)
+    }
+    // document.querySelector('h1').addEventListener('mouseenter', alertHi)
+
+    console.log(document.querySelector('.container').childNodes)
+    console.log(document.querySelector('.container').children)
+    console.log(document.querySelector('.paragraph').parentNode)
+    console.log(document.querySelector('.paragraph').parentElement)
+    console.log(document.querySelector('.paragraph').closest('.container'))
+
+</script>
+
+</html>
